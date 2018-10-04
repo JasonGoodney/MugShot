@@ -10,15 +10,20 @@ import UIKit
 
 class EndGameViewController: UIViewController {
     
+    //MARK: - Regular Properties
+    var playerName = "(player name)"
+    //TODO: substitute 25 with player score
+    var top5playersScore : Int = 25
+    var curentPlayerScore : Int = 25
     
+    //MARK: - Background Properties
     let backgrounImage : UIImageView = {
         let imageView = UIImageView()
         let image = UIImage(named: "brick")
         imageView.image = image
         return imageView
     }()
-    
-    
+
     let blueAlfa : UIView = {
         let view = UIView()
         view.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
@@ -27,15 +32,38 @@ class EndGameViewController: UIViewController {
     }()
     
     
+    //MARK: - Labels
+    let gameOverLabel : GameLabel = {
+        let label = GameLabel()
+        label.text = "GAME OVER"
+        return label
+    }()
     
+    var curentScore : GameLabel = {
+        let label = GameLabel()
+        label.text = "Current Score: (25)"
+        label.font = UIFont.systemFont(ofSize: 30, weight: .black)
+        return label
+    }()
     
+    var topFive1 : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.text = self.playerName
+        return label
+    }
+    //TODO: Finish seting up top 5
+    
+    //MARK: - LifeCycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpBackgroundImage()
+        setupLabels()
         
     }
     
     
+    //MARK: - View Setup Methods
     func setUpBackgroundImage() {
         self.view.addSubview(backgrounImage)
         backgrounImage.translatesAutoresizingMaskIntoConstraints = false
@@ -47,11 +75,20 @@ class EndGameViewController: UIViewController {
     }
     
     
-    
-    
-    
-    
-    
-    
-
+    //MARK: - Label Setup Methods
+    func setupLabels(){
+        self.view.addSubview(gameOverLabel)
+        gameOverLabel.anchorCenterXToSuperview()
+        gameOverLabel.anchorCenterYToSuperview(constant: -200)
+        
+        self.view.addSubview(curentScore)
+        curentScore.anchorCenterXToSuperview()
+        curentScore.anchor(gameOverLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
+        
+//        let stackView = UIStackView(arrangedSubviews: <#T##[UIView]#>)
+//        stackView.distribution = .fillEqually
+//        stackView.spacing = 5
+//        self.view.addSubview(stackView)
+//
+    }
 }
