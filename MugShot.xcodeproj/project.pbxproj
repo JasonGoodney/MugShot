@@ -10,6 +10,7 @@
 		3BAB075921669A9C0094AF41 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075821669A9C0094AF41 /* Player.swift */; };
 		3BAB075B21669C110094AF41 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075A21669C110094AF41 /* Enemy.swift */; };
 		3BAB075E21669C870094AF41 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075D21669C870094AF41 /* GameController.swift */; };
+		D71BA52C2166B66A00ECA60E /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71BA52B2166B66A00ECA60E /* GameLabel.swift */; };
 		D75835362166911500E5F684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75835352166911500E5F684 /* AppDelegate.swift */; };
 		D758353B2166911500E5F684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75835392166911500E5F684 /* Main.storyboard */; };
 		D758353D2166911700E5F684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D758353C2166911700E5F684 /* Assets.xcassets */; };
@@ -18,12 +19,14 @@
 		D758354E21669C2E00E5F684 /* EndGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D758354D21669C2E00E5F684 /* EndGameViewController.swift */; };
 		D758355021669C4400E5F684 /* PlayGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D758354F21669C4400E5F684 /* PlayGameViewController.swift */; };
 		D758355321669CF900E5F684 /* UIView+Anchors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D758355221669CF900E5F684 /* UIView+Anchors.swift */; };
+		D75835562166ABF800E5F684 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75835552166ABF800E5F684 /* GameButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3BAB075821669A9C0094AF41 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3BAB075A21669C110094AF41 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		3BAB075D21669C870094AF41 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		D71BA52B2166B66A00ECA60E /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 		D75835322166911500E5F684 /* MugShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MugShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75835352166911500E5F684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D758353A2166911500E5F684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 		D758354D21669C2E00E5F684 /* EndGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndGameViewController.swift; sourceTree = "<group>"; };
 		D758354F21669C4400E5F684 /* PlayGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayGameViewController.swift; sourceTree = "<group>"; };
 		D758355221669CF900E5F684 /* UIView+Anchors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Anchors.swift"; sourceTree = "<group>"; };
+		D75835552166ABF800E5F684 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				D75835352166911500E5F684 /* AppDelegate.swift */,
+				D75835542166ABD600E5F684 /* View */,
 				D758354A21669A8F00E5F684 /* ViewController */,
 				D7583549216691A200E5F684 /* Storyboard */,
 				D758355121669CD000E5F684 /* Extensions */,
@@ -136,6 +141,15 @@
 				D758355221669CF900E5F684 /* UIView+Anchors.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D75835542166ABD600E5F684 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D75835552166ABF800E5F684 /* GameButton.swift */,
+				D71BA52B2166B66A00ECA60E /* GameLabel.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -213,9 +227,11 @@
 				3BAB075E21669C870094AF41 /* GameController.swift in Sources */,
 				D75835362166911500E5F684 /* AppDelegate.swift in Sources */,
 				D758354C21669BF200E5F684 /* StartGameViewController.swift in Sources */,
+				D71BA52C2166B66A00ECA60E /* GameLabel.swift in Sources */,
 				D758355321669CF900E5F684 /* UIView+Anchors.swift in Sources */,
 				D758355021669C4400E5F684 /* PlayGameViewController.swift in Sources */,
 				D758354E21669C2E00E5F684 /* EndGameViewController.swift in Sources */,
+				D75835562166ABF800E5F684 /* GameButton.swift in Sources */,
 				3BAB075B21669C110094AF41 /* Enemy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +379,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5EAUJPVR66;
+				DEVELOPMENT_TEAM = K2R548H5LT;
 				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -381,7 +397,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5EAUJPVR66;
+				DEVELOPMENT_TEAM = K2R548H5LT;
 				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
