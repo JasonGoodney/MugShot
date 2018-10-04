@@ -42,12 +42,5 @@ class PlayGameViewController: UIViewController {
         self.view.addSubview(blueAlfa)
         blueAlfa.translatesAutoresizingMaskIntoConstraints = false
         blueAlfa.fillSuperview()
-        
-        
-        
-        
     }
-    
-    
-
 }
