@@ -212,11 +212,14 @@
 				3BAB075921669A9C0094AF41 /* Player.swift in Sources */,
 				3BAB075E21669C870094AF41 /* GameController.swift in Sources */,
 				D75835362166911500E5F684 /* AppDelegate.swift in Sources */,
+<<<<<<< HEAD
+				3BAB075B21669C110094AF41 /* Enemy.swift in Sources */,
+=======
 				D758354C21669BF200E5F684 /* StartGameViewController.swift in Sources */,
 				D758355321669CF900E5F684 /* UIView+Anchors.swift in Sources */,
 				D758355021669C4400E5F684 /* PlayGameViewController.swift in Sources */,
 				D758354E21669C2E00E5F684 /* EndGameViewController.swift in Sources */,
-				3BAB075B21669C110094AF41 /* Enemy.swift in Sources */,
+>>>>>>> 0389523212d9dd1ed64b3c3e7982ee1e12cb438b
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
