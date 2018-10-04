@@ -9,11 +9,49 @@
 import UIKit
 
 class EndGameViewController: UIViewController {
-
+    
+    
+    let backgrounImage : UIImageView = {
+        let imageView = UIImageView()
+        let image = UIImage(named: "brick")
+        imageView.image = image
+        return imageView
+    }()
+    
+    
+    let blueAlfa : UIView = {
+        let view = UIView()
+        view.backgroundColor = #colorLiteral(red: 0.2196078449, green: 0.007843137719, blue: 0.8549019694, alpha: 1)
+        view.alpha = 0.6
+        return view
+    }()
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        setUpBackgroundImage()
+        
     }
+    
+    
+    func setUpBackgroundImage() {
+        self.view.addSubview(backgrounImage)
+        backgrounImage.translatesAutoresizingMaskIntoConstraints = false
+        backgrounImage.fillSuperview()
+        
+        self.view.addSubview(blueAlfa)
+        blueAlfa.translatesAutoresizingMaskIntoConstraints = false
+        blueAlfa.fillSuperview()
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 
 }
