@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BAB075921669A9C0094AF41 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075821669A9C0094AF41 /* Player.swift */; };
+		3BAB075B21669C110094AF41 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075A21669C110094AF41 /* Enemy.swift */; };
+		3BAB075E21669C870094AF41 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075D21669C870094AF41 /* GameController.swift */; };
 		D75835362166911500E5F684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75835352166911500E5F684 /* AppDelegate.swift */; };
 		D758353B2166911500E5F684 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D75835392166911500E5F684 /* Main.storyboard */; };
 		D758353D2166911700E5F684 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D758353C2166911700E5F684 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3BAB075821669A9C0094AF41 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		3BAB075A21669C110094AF41 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		3BAB075D21669C870094AF41 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		D75835322166911500E5F684 /* MugShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MugShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D75835352166911500E5F684 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D758353A2166911500E5F684 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -33,6 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3BAB075721669A500094AF41 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB075821669A9C0094AF41 /* Player.swift */,
+				3BAB075A21669C110094AF41 /* Enemy.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		3BAB075C21669C780094AF41 /* GameController */ = {
+			isa = PBXGroup;
+			children = (
+				3BAB075D21669C870094AF41 /* GameController.swift */,
+			);
+			path = GameController;
+			sourceTree = "<group>";
+		};
 		D75835292166911500E5F684 = {
 			isa = PBXGroup;
 			children = (
@@ -52,6 +75,8 @@
 		D75835342166911500E5F684 /* MugShot */ = {
 			isa = PBXGroup;
 			children = (
+				3BAB075C21669C780094AF41 /* GameController */,
+				3BAB075721669A500094AF41 /* Model */,
 				D75835482166919B00E5F684 /* Source */,
 				D75835472166918F00E5F684 /* Resources */,
 			);
@@ -156,7 +181,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BAB075921669A9C0094AF41 /* Player.swift in Sources */,
+				3BAB075E21669C870094AF41 /* GameController.swift in Sources */,
 				D75835362166911500E5F684 /* AppDelegate.swift in Sources */,
+				3BAB075B21669C110094AF41 /* Enemy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,8 +331,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R548H5LT;
-				INFOPLIST_FILE = MugShot/Info.plist;
+				DEVELOPMENT_TEAM = 5EAUJPVR66;
+				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -321,8 +349,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R548H5LT;
-				INFOPLIST_FILE = MugShot/Info.plist;
+				DEVELOPMENT_TEAM = 5EAUJPVR66;
+				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
