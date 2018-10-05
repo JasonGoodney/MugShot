@@ -12,6 +12,8 @@ class PlayGameViewController: UIViewController {
 
     // MARK: - Properties
     private let characterSize: CGFloat = 100
+    let randomPersonInt = Int.random(in: 0..<GameController.shared.enemies.count)
+    
     
     // MARK: - Subviews
     let backgrounImage : UIImageView = {
@@ -35,10 +37,14 @@ class PlayGameViewController: UIViewController {
         return view
     }()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundSetup()
         setupPlayerView()
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
     }
     
     
@@ -59,6 +65,7 @@ class PlayGameViewController: UIViewController {
         playerView.anchorCenterXToSuperview()
         
     }
+    
     
     // MARK: - Touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
