@@ -14,18 +14,8 @@ class GameController {
     static let shared = GameController()
     private init() {}
     
+    let currentScore = 0
     var player = Player.init(highScore: 0, currentScore: 0, deaths: 0, face: UIImage(named: "karl")!)
-    
-    func saveGame(){
-        
-    }
-    
-    
-    
-    
-    
-    
-    
     
    var enemies : [Enemy]  {
         let kamil = Enemy.init(image: #imageLiteral(resourceName: "kamil"), tapAmout: 1, speed: 1, name: "Kamil")
@@ -38,11 +28,55 @@ class GameController {
         let eric = Enemy.init(image: #imageLiteral(resourceName: "eric"), tapAmout: 1, speed: 1, name: "Eric")
         let cody = Enemy.init(image: #imageLiteral(resourceName: "cody"), tapAmout: 1, speed: 1, name: "Cody")
         let quinten = Enemy.init(image: #imageLiteral(resourceName: "quinten"), tapAmout: 1, speed: 1, name: "Quinten")
-        let trevor = Enemy.init(image: #imageLiteral(resourceName: "brick"), tapAmout: 3, speed: 1, name: "Trevor")
+        let trevor = Enemy.init(image: UIImage(named: "trevor")!, tapAmout: 3, speed: 1, name: "Trevor")
         
         return [kamil, jason, jayden, nick, john, abdi, markus, eric, cody, quinten, trevor]
         
     }
     
-
+    func saveGame() {
+        
+    }
+    
+    func randomEnemy() -> Enemy {
+        let index =  Int.random(in: 0..<enemies.count)
+        return enemies[index]
+    }
+    
+    func randomX(inRange range: Int) -> Int {
+        let widthAnchor = UIScreen.main.bounds.width - 50
+        let x = Int.random(in: 0...range)
+        return x
+    }
+    
+    func spawnEnemy(onVC vc: PlayGameViewController) {
+        let screenHeight = vc.gameArea.frame.maxY
+        let gameAreaWidth = vc.gameArea.frame.width
+        let enemy = randomEnemy()
+        
+        let xPosition = CGFloat(randomX(inRange: Int(gameAreaWidth)))
+        let startY = screenHeight * 1.2
+        
+        let startPoint = CGPoint(x: xPosition, y: startY)
+        let endPoint = CGPoint(x: xPosition, y: -screenHeight * 1.2)
+        
+        let enemyView = CharacterView()
+        enemyView.bounds.origin = startPoint
+        
+        enemyView.characterImage = enemy.image
+        enemyView.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        enemyView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        vc.gameArea.addSubview(enemyView)
+        
+        UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseInOut], animations: {
+            
+            
+            enemyView.bounds.origin = endPoint
+            
+        }) { (true) in
+            enemyView.removeFromSuperview()
+            self.spawnEnemy(onVC: vc)
+        }
+        
+    }
 }

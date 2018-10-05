@@ -19,6 +19,7 @@ class CharacterView: UIView {
     // MARK: - Subviews
     private let imageView: UIImageView = {
         let view = UIImageView()
+        view.contentMode = .scaleAspectFit
         return view
     }()
     
@@ -47,9 +48,9 @@ class CharacterView: UIView {
     
     private func updateView() {
         addSubview(imageView)
+        translatesAutoresizingMaskIntoConstraints = false
         setupConstraints()
         
-        translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupConstraints() {

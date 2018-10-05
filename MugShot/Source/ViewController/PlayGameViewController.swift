@@ -37,11 +37,22 @@ class PlayGameViewController: UIViewController {
         return view
     }()
     
+<<<<<<< HEAD
+=======
+    var gameArea = UIView()
+>>>>>>> 103835cfcd5468967771218a5925de354d97cb9e
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundSetup()
+        setupGameArea()
         setupPlayerView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        GameController.shared.spawnEnemy(onVC: self)
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -59,19 +70,26 @@ class PlayGameViewController: UIViewController {
     }
     
     func setupPlayerView() {
-        view.addSubview(playerView)
+        gameArea.addSubview(playerView)
         
         playerView.anchor(nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, topConstant: 0, leftConstant: 0, bottomConstant: 64, rightConstant: 0, widthConstant: characterSize, heightConstant: characterSize)
         playerView.anchorCenterXToSuperview()
         
     }
     
+     func setupGameArea() {
+        gameArea.backgroundColor = .orange
+        view.addSubview(gameArea)
+        
+        gameArea.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 60, bottomConstant: 0, rightConstant: 60, widthConstant: 0, heightConstant: 0)
+    }
+>>>>>>> 103835cfcd5468967771218a5925de354d97cb9e
     
     // MARK: - Touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: 0.25) {
-            let touchPoint = touches.first!.location(in: self.view)
-            if touchPoint.x > 20 && touchPoint.x < self.view.frame.width - 20 {
+            let touchPoint = touches.first!.location(in: self.gameArea)
+            if touchPoint.x > 20 && touchPoint.x < self.gameArea.frame.width - 20 {
                 self.playerView.center.x = touchPoint.x
             }
         }
