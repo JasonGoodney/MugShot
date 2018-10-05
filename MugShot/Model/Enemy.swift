@@ -16,3 +16,6 @@ struct Enemy {
     var name:  String
     
 }
+
+
+
