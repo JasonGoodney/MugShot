@@ -11,7 +11,7 @@ import UIKit
 class PlayGameViewController: UIViewController {
 
     // MARK: - Properties
-    private let characterSize: CGFloat = 64
+    private let characterSize: CGFloat = 100
     
     // MARK: - Subviews
     let backgrounImage : UIImageView = {
@@ -59,4 +59,15 @@ class PlayGameViewController: UIViewController {
         playerView.anchorCenterXToSuperview()
         
     }
+    
+    // MARK: - Touches
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        UIView.animate(withDuration: 0.25) {
+            let touchPoint = touches.first!.location(in: self.view)
+            if touchPoint.x > 20 && touchPoint.x < self.view.frame.width - 20 {
+                self.playerView.center.x = touchPoint.x
+            }
+        }
+    }
+
 }
