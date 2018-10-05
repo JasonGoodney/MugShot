@@ -46,13 +46,54 @@ class EndGameViewController: UIViewController {
         return label
     }()
     
+    var topFive : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 30, weight: .black)
+        label.text = "Top Five:"
+        return label
+    }
+    
     var topFive1 : GameLabel  {
         let label = GameLabel()
         label.font = UIFont.systemFont(ofSize: 20, weight: .black)
-        label.text = self.playerName
+        label.text = "1. \(self.playerName) : \(self.top5playersScore)"
         return label
     }
-    //TODO: Finish seting up top 5
+    
+    var topFive2 : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.text = "2. \(self.playerName) : \(self.top5playersScore)"
+        return label
+    }
+    
+    var topFive3 : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.text = "3. \(self.playerName) : \(self.top5playersScore)"
+        return label
+    }
+    
+    var topFive4 : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.text = "4. \(self.playerName) : \(self.top5playersScore)"
+        return label
+    }
+    
+    var topFive5 : GameLabel  {
+        let label = GameLabel()
+        label.font = UIFont.systemFont(ofSize: 20, weight: .black)
+        label.text = "5. \(self.playerName) : \(self.top5playersScore)"
+        return label
+    }
+    
+    let restartButton : GameButton = {
+        let button = GameButton()
+        button.setTitle("Try Again", for: .normal)
+        return button
+    }()
+    
     
     //MARK: - LifeCycle Methods
     override func viewDidLoad() {
@@ -61,7 +102,6 @@ class EndGameViewController: UIViewController {
         setupLabels()
         
     }
-    
     
     //MARK: - View Setup Methods
     func setUpBackgroundImage() {
@@ -85,10 +125,17 @@ class EndGameViewController: UIViewController {
         curentScore.anchorCenterXToSuperview()
         curentScore.anchor(gameOverLabel.bottomAnchor, left: nil, bottom: nil, right: nil, topConstant: 50, leftConstant: 0, bottomConstant: 0, rightConstant: 0, widthConstant: 0, heightConstant: 0)
         
-//        let stackView = UIStackView(arrangedSubviews: <#T##[UIView]#>)
-//        stackView.distribution = .fillEqually
-//        stackView.spacing = 5
-//        self.view.addSubview(stackView)
-//
+        let stackView = UIStackView(arrangedSubviews: [topFive,topFive1, topFive2, topFive3, topFive4, topFive5])
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 5
+        self.view.addSubview(stackView)
+        stackView.anchorCenterXToSuperview()
+        stackView.anchorCenterYToSuperview(constant: 100)
+        
+        self.view.addSubview(restartButton)
+        restartButton.anchorCenterXToSuperview()
+        restartButton.anchorCenterYToSuperview(constant: 270)
+
     }
 }
