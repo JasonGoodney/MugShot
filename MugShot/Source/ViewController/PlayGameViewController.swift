@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayGameViewController: UIViewController {
-
+    
     // MARK: - Properties
     private let characterSize: CGFloat = 100
     let randomPersonInt = Int.random(in: 0..<GameController.shared.enemies.count)
-    
+    var player: AVAudioPlayer?
+    var endGameVc = EndGameViewController()
     
     // MARK: - Subviews
     let backgrounImage : UIImageView = {
@@ -37,25 +39,32 @@ class PlayGameViewController: UIViewController {
         return view
     }()
     
-<<<<<<< HEAD
-=======
-    var gameArea = UIView()
->>>>>>> 103835cfcd5468967771218a5925de354d97cb9e
     
     override func viewDidLoad() {
         super.viewDidLoad()
         backgroundSetup()
-        setupGameArea()
         setupPlayerView()
+        playSound()
         
+        Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { (_) in
+            
+            
+            
+            GameController.shared.intersection(enemy: GameController.shared.enemyView, player: self.playerView, completion: { (success) in
+                if success {
+                    DispatchQueue.main.async {
+                        self.present(self.endGameVc, animated: true, completion: {
+                        })
+                    }
+                }
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         GameController.shared.spawnEnemy(onVC: self)
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        
     }
     
     
@@ -70,29 +79,46 @@ class PlayGameViewController: UIViewController {
     }
     
     func setupPlayerView() {
-        gameArea.addSubview(playerView)
-        
+        self.view.addSubview(playerView)
         playerView.anchor(nil, leading: nil, bottom: view.bottomAnchor, trailing: nil, topConstant: 0, leftConstant: 0, bottomConstant: 64, rightConstant: 0, widthConstant: characterSize, heightConstant: characterSize)
         playerView.anchorCenterXToSuperview()
         
     }
     
-     func setupGameArea() {
-        gameArea.backgroundColor = .orange
-        view.addSubview(gameArea)
-        
-        gameArea.anchor(view.topAnchor, left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, topConstant: 0, leftConstant: 60, bottomConstant: 0, rightConstant: 60, widthConstant: 0, heightConstant: 0)
-    }
->>>>>>> 103835cfcd5468967771218a5925de354d97cb9e
     
     // MARK: - Touches
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         UIView.animate(withDuration: 0.25) {
-            let touchPoint = touches.first!.location(in: self.gameArea)
-            if touchPoint.x > 20 && touchPoint.x < self.gameArea.frame.width - 20 {
+            
+            let touchPoint = touches.first!.location(in: self.view)
+            if touchPoint.x > 20 && touchPoint.x < self.view.frame.width - 20 {
                 self.playerView.center.x = touchPoint.x
             }
         }
     }
-
+    
+    //MARK: - Intersection
+    
+    
+    
+    
+    //MARK: - Music
+    func playSound(){
+        guard let url = Bundle.main.url(forResource: "Jingle_Bell_Rock", withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: .mixWithOthers)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            
+            guard let player = player else { return }
+            
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
 }

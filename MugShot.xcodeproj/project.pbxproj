@@ -10,6 +10,7 @@
 		3BAB075921669A9C0094AF41 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075821669A9C0094AF41 /* Player.swift */; };
 		3BAB075B21669C110094AF41 /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075A21669C110094AF41 /* Enemy.swift */; };
 		3BAB075E21669C870094AF41 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BAB075D21669C870094AF41 /* GameController.swift */; };
+		3BAB0760216723EA0094AF41 /* Jingle_Bell_Rock.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3BAB075F216723EA0094AF41 /* Jingle_Bell_Rock.mp3 */; };
 		D71BA52C2166B66A00ECA60E /* GameLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71BA52B2166B66A00ECA60E /* GameLabel.swift */; };
 		D71BA52E2166E54800ECA60E /* CharacterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71BA52D2166E54800ECA60E /* CharacterView.swift */; };
 		D75835362166911500E5F684 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75835352166911500E5F684 /* AppDelegate.swift */; };
@@ -27,6 +28,7 @@
 		3BAB075821669A9C0094AF41 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		3BAB075A21669C110094AF41 /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		3BAB075D21669C870094AF41 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		3BAB075F216723EA0094AF41 /* Jingle_Bell_Rock.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Jingle_Bell_Rock.mp3; sourceTree = "<group>"; };
 		D71BA52B2166B66A00ECA60E /* GameLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLabel.swift; sourceTree = "<group>"; };
 		D71BA52D2166E54800ECA60E /* CharacterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterView.swift; sourceTree = "<group>"; };
 		D75835322166911500E5F684 /* MugShot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MugShot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -102,6 +104,7 @@
 			children = (
 				D758353C2166911700E5F684 /* Assets.xcassets */,
 				D758353E2166911700E5F684 /* LaunchScreen.storyboard */,
+				3BAB075F216723EA0094AF41 /* Jingle_Bell_Rock.mp3 */,
 				D75835412166911700E5F684 /* Info.plist */,
 			);
 			path = Resources;
@@ -216,6 +219,7 @@
 				D75835402166911700E5F684 /* LaunchScreen.storyboard in Resources */,
 				D758353D2166911700E5F684 /* Assets.xcassets in Resources */,
 				D758353B2166911500E5F684 /* Main.storyboard in Resources */,
+				3BAB0760216723EA0094AF41 /* Jingle_Bell_Rock.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,7 +387,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R548H5LT;
+				DEVELOPMENT_TEAM = 5EAUJPVR66;
 				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -401,7 +405,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K2R548H5LT;
+				DEVELOPMENT_TEAM = 5EAUJPVR66;
 				INFOPLIST_FILE = "$(SRCROOT)/MugShot/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

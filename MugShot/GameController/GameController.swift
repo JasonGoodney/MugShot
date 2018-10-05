@@ -43,40 +43,57 @@ class GameController {
         return enemies[index]
     }
     
+
     func randomX(inRange range: Int) -> Int {
-        let widthAnchor = UIScreen.main.bounds.width - 50
+        //let widthAnchor = vc.gameArea.bounds.width - 50
+        let x = Int.random(in: 0...range)
+        return x
+    }
+    func randomX2(inRange range: Int) -> Int {
+        //let widthAnchor = vc.gameArea.bounds.width - 50
         let x = Int.random(in: 0...range)
         return x
     }
     
+    let enemyView = CharacterView()
+    
+    //MARK: - Spawn Enemy
     func spawnEnemy(onVC vc: PlayGameViewController) {
-        let screenHeight = vc.gameArea.frame.maxY
-        let gameAreaWidth = vc.gameArea.frame.width
+        let screenHeight = vc.view.bounds.maxY
+        let gameAreaWidth = vc.view.bounds.width
         let enemy = randomEnemy()
-        
-        let xPosition = CGFloat(randomX(inRange: Int(gameAreaWidth)))
+        let xPosition = CGFloat(-300 + randomX(inRange: Int(gameAreaWidth)))
+        let xPositionBottom = CGFloat(-300 + randomX2(inRange: Int(gameAreaWidth)))
         let startY = screenHeight * 1.2
-        
         let startPoint = CGPoint(x: xPosition, y: startY)
-        let endPoint = CGPoint(x: xPosition, y: -screenHeight * 1.2)
-        
-        let enemyView = CharacterView()
+        let endPoint = CGPoint(x: xPositionBottom, y: -screenHeight * 1.2)
         enemyView.bounds.origin = startPoint
-        
         enemyView.characterImage = enemy.image
         enemyView.widthAnchor.constraint(equalToConstant: 100).isActive = true
         enemyView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        vc.gameArea.addSubview(enemyView)
-        
-        UIView.animate(withDuration: 2, delay: 0, options: [.curveEaseInOut], animations: {
-            
-            
-            enemyView.bounds.origin = endPoint
-            
+        vc.view.addSubview(enemyView)
+        UIView.animate(withDuration: 2.5, delay: 0, options: [.curveEaseInOut], animations: {
+            self.enemyView.bounds.origin = endPoint
         }) { (true) in
-            enemyView.removeFromSuperview()
+            self.enemyView.removeFromSuperview()
+           
             self.spawnEnemy(onVC: vc)
         }
-        
     }
+    
+    //MARK: - Intersection of enemy and player
+    func intersection(enemy: CharacterView, player: CharacterView, completion: @escaping (Bool)->Void) {
+        
+       guard let enemyFrame = enemy.layer.presentation()?.frame,
+        let playerFrame = player.layer.presentation()?.frame else {return}
+        print(enemyFrame.intersects(playerFrame))
+        if enemyFrame.intersects(playerFrame){
+            completion(true)
+        }
+    }
+    
+    
+    
+    
+    
 }
