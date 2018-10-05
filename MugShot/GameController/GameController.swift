@@ -6,8 +6,7 @@
 //  Copyright © 2018 Jason Goodney. All rights reserved.
 //
 
-import Foundation
-
+import UIKit
 
 class GameController {
     
@@ -15,6 +14,7 @@ class GameController {
     static let shared = GameController()
     private init() {}
     
+    var player = Player.init(highScore: 0, currentScore: 0, deaths: 0, face: UIImage(named: "karl")!)
     
     func saveGame(){
         
